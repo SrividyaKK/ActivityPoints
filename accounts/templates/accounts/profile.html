@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block body %}
+<center>
+<div class='container' style="width:25%">
+        <div class="card card-panel" style="margin-top:15px; background-color:rgba(0, 0, 0, 0.6)">
+            <div class="row">
+                <div class="col s12 m12">
+                  <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                      <span class="card-title">Profile</span>
+                      <table>
+                          <tr>
+                              <td>Username:</td><td>{{ user }}</td>
+                          </tr>
+                          <tr>
+                              <td>First Name:</td><td>{{data.FirstName}}</td>
+                          </tr>
+                          <tr>
+                              <td>Last Name:</td><td>{{data.LastName}}</td>
+                          </tr>
+                          <tr>
+                              <td>Email Id:</td><td>{{ user.email }}</td>
+                          </tr>
+                          <tr>
+                              <td>Class:</td><td>{{data.Class}}</td>
+                          </tr>
+                          <tr>
+                              <td>Semester:</td><td>{{data.Semester}}</td>
+                          </tr>
+                          <tr>
+                              <td>Total Credits:</td><td>{{data.TotalCredits}}</td>
+                          </tr>
+                      </table>
+                    </div>
+                      <div class="card-action">
+                        <a href="http://127.0.0.1:8000/account/profile/edit">Update Details</a>
+                      </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </center>
+{% endblock %}
