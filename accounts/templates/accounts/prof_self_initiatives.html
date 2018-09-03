@@ -116,42 +116,12 @@
 <!--</ul>-->
 <!--{% endif %}-->
         <h2>Certificate</h2>
-       <!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
          <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-    <!--<select>-->
-        <!--<option value="0">Select :</option>-->
-        <!--<option value="1">Tech Fest, Tech Quiz</option>-->
-        <!--<option value="2">MOOC with final assessment certificate</option>-->
-        <!--<option value="3">Competitionsconducted by Professional Societies - (IEEE,IET, ASME, SAE,NASA etc.)</option>-->
-        <!--<option value="4">Attending Full timeConference/Seminars /Exhibitions/Workshop/ STTPconducted at IITs/NITs</option>-->
-        <!--<option value="5">Paper presentation/publication at IITs/NITs</option>-->
-        <!--<option value="6">Poster Presentationat IITs /NITs</option>-->
-        <!--<option value="7">Industrial Training/Internship (atleastfor 5 full days)</option>-->
-        <!--<option value="8">Industrial/Exhibition visits</option>-->
-        <!--<option value="9">Foreign Language Skill (TOFEL/IELTS/BEC exams etc.)</option>-->
-    <!--</select>-->
-        <!--</div>-->
-    <!--<select>-->
-        <!--<option value="0">Select :</option>-->
-        <!--<option value="1">College Events</option>-->
-        <!--<option value="2">Zonal Events</option>-->
-        <!--<option value="3">State/ University Events</option>-->
-        <!--<option value="4">National Events</option>-->
-        <!--<option value="5">International Events</option>-->
-    <!--</select>-->
 
-    <!--<select>-->
-        <!--<option value="0">Select :</option>-->
-        <!--<option value="1">(a) Certificate </option>-->
-        <!--<option value="2">(b) Letter from Authorities</option>-->
-        <!--<option value="3">(c) Appreciation recognition letter </option>-->
-        <!--<option value="4">(d)Documentary evidence </option>-->
-        <!--<option value="5">(e) Legal Proof </option>-->
-        <!--<option value="5">(f) Others (specify)</option>-->
-    <!--</select>-->
-             {{ form.as_p }}
-          <input type="submit">
+            {{ form.as_p }}
+
+            <input type="submit">
          </form>
          <br>
        </div>

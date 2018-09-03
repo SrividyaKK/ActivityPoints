@@ -109,38 +109,12 @@
       <div class="container1">
 
         <h2>Certificate</h2>
-       <!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
          <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-    <!--<select>-->
-        <!--<option value="0">Select :</option>-->
-        <!--<option value="1">Start-up Company –Registered legally</option>-->
-        <!--<option value="2">Patent-Filed</option>-->
-        <!--<option value="3">Patent-Published</option>-->
-        <!--<option value="4">Patent-Approved</option>-->
-        <!--<option value="5">Patent-Licensed</option>-->
-        <!--<option value="6">Prototype developed and tested</option>-->
-        <!--<option value="7">Awards for Products developed</option>-->
-        <!--<option value="8">Innovativetechnologiesdeveloped and usedby industries/users</option>-->
-        <!--<option value="9">Got venture capital funding forinnovativeideas/products.</option>-->
-        <!--<option value="10">Startup Employment (Offering jobs totwo persons lessthan Rs. 15000/- per month)</option>-->
-        <!--<option value="11">Societal innovations</option>-->
-    <!--</select>-->
 
-      <!--</div>-->
+            {{ form.as_p }}
 
-    <!--<select>-->
-        <!--<option value="0">Select :</option>-->
-        <!--<option value="1">(a) Certificate </option>-->
-        <!--<option value="2">(b) Letter from Authorities</option>-->
-        <!--<option value="3">(c) Appreciation recognition letter </option>-->
-        <!--<option value="4">(d)Documentary evidence </option>-->
-        <!--<option value="5">(e) Legal Proof </option>-->
-        <!--<option value="5">(f) Others (specify)</option>-->
-            <!--</select>-->
-             <!--<br>-->
-             {{ form.as_p }}
-          <input type="submit">
+            <input type="submit">
          </form>
          <br>
        </div>

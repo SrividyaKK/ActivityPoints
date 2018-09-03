@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from accounts.forms import RegistrationForm, RegistrationForm2, EditprofileForm, \
     LeadForm, Cultform, Profform, Entreform, Gameform, NatForm
-from django.contrib import messages
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
@@ -12,6 +11,7 @@ from accounts.database import *
 
 @login_required
 def home(request):
+    print(n[13])
     return render(request, 'accounts/home.html')
 
 class national_initiatives(LoginRequiredMixin, TemplateView):
@@ -22,7 +22,6 @@ class national_initiatives(LoginRequiredMixin, TemplateView):
         return render(request, self.template_name, {'form': form})
 
     def post(self, request):
-        # n = [0] * 90
 
         form = NatForm(request.POST, request.FILES)
         if form.is_valid():
@@ -36,14 +35,14 @@ class national_initiatives(LoginRequiredMixin, TemplateView):
             DocType = form.cleaned_data['DocType']
             form = NatForm()
 
-            # if(TwoYears * 1 == 1):
-            #     U = UserProfile.objects.get(user=request.user)
-            #     x = 10 * Category + SubCategory
-            #     U.TotalCredits += n[x]
-            #     U.save()
-            args = {'form': form, 'TwoYears': TwoYears, 'Category': Category,
-                    'SubCategory': SubCategory, 'DocType': DocType}
-            return render(request, self.template_name, args)
+            if(int(TwoYears) * 1 == 1):
+                U = UserProfile.objects.get(user=request.user)
+                x = 10 * int(Category) + int(SubCategory)
+                print(x)
+                U.TotalCredits += n[x]
+                U.save()
+
+            return redirect('/account')
 
 class sports_games(LoginRequiredMixin, TemplateView):
 
@@ -57,7 +56,6 @@ class sports_games(LoginRequiredMixin, TemplateView):
 
         form = Gameform(request.POST, request.FILES)
         if form.is_valid():
-            print ("working")
             instance = form.save(commit=False)
             instance.user6 = request.user
             instance.save()
@@ -92,9 +90,8 @@ class sports_games(LoginRequiredMixin, TemplateView):
                 x = 10 * int(Category) + int(Level)
                 U.TotalCredits += (s[x] + h)
                 U.save()
-            args = {'form': form, 'OneYear': OneYear, 'Category': Category, 'Level': Level,
-                    'Position': Position, 'DocType': DocType}
-            return render(request, self.template_name, args)
+
+            return redirect('/account')
 
 class cultural_activities(LoginRequiredMixin, TemplateView):
     template_name = 'accounts/cultural_activities.html'
@@ -140,9 +137,8 @@ class cultural_activities(LoginRequiredMixin, TemplateView):
                 x = 10 * int(Category) + int(Level)
                 U.TotalCredits += (c[x] + h)
                 U.save()
-            args = {'form': form, 'OneYear': OneYear, 'Category': Category, 'Level': Level,
-                    'Position': Position, 'DocType': DocType}
-            return render(request, self.template_name, args)
+
+            return redirect('/account')
 
 class prof_self_initiatives(LoginRequiredMixin, TemplateView):
     template_name = 'accounts/prof_self_initiatives.html'
@@ -172,8 +168,7 @@ class prof_self_initiatives(LoginRequiredMixin, TemplateView):
             U.TotalCredits += p[x]
             U.save()
 
-            args = {'form': form, 'Category': Category, 'Level': Level, 'DocType': DocType}
-            return render(request, self.template_name, args)
+            return redirect('/account')
 
 class Entrepreneurship_innovation(LoginRequiredMixin, TemplateView):
     template_name = 'accounts/Entrepreneurship_innovation.html'
@@ -198,8 +193,8 @@ class Entrepreneurship_innovation(LoginRequiredMixin, TemplateView):
             x = int(Category)
             U.TotalCredits += e[x]
             U.save()
-            args = {'form': form, 'Category': Category, 'DocType': DocType}
-            return render(request, self.template_name, args)
+
+            return redirect('/account')
 
 class Leadership_management(LoginRequiredMixin, TemplateView):
     template_name = 'accounts/Leadership_management.html'
@@ -225,8 +220,8 @@ class Leadership_management(LoginRequiredMixin, TemplateView):
             x = 10 * int(Category) + int(SubCategory)
             U.TotalCredits += l[x]
             U.save()
-            args = {'form': form, 'Category': Category, 'SubCategory': SubCategory, 'DocType': DocType}
-            return render(request, self.template_name, args)
+
+            return redirect('/account')
 
 def register(request):
     if request.method == 'POST':

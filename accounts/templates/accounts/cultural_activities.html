@@ -109,43 +109,12 @@
       <div class="container1">
 
         <h2>Certificate</h2>
-       <!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
          <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-           <!--<select>-->
-               <!--<option value="0">Select :</option>-->
-               <!--<option value="1">Music</option>-->
-               <!--<option value="2">Performing Arts</option>-->
-               <!--<option value="3">Literary Arts</option>-->
-           <!--</select>-->
-      <!--</div>-->
 
-    <!--<select>-->
-        <!--<option value="0">Select :</option>-->
-        <!--<option value="1">College Events</option>-->
-        <!--<option value="2">Zonal Events</option>-->
-        <!--<option value="3">State/ University Events</option>-->
-        <!--<option value="4">National Events</option>-->
-        <!--<option value="5">International Events</option>-->
-    <!--</select>-->
-     <!--<select>-->
-         <!--<option value="0">Select :</option>-->
-         <!--<option value="1">First</option>-->
-         <!--<option value="2">Second</option>-->
-         <!--<option value="3">Third</option>-->
-     <!--</select>-->
+            {{ form.as_p }}
 
-     <!--<select>-->
-        <!--<option value="0">Select :</option>-->
-        <!--<option value="1">(a) Certificate </option>-->
-        <!--<option value="2">(b) Letter from Authorities</option>-->
-        <!--<option value="3">(c) Appreciation recognition letter </option>-->
-        <!--<option value="4">(d)Documentary evidence </option>-->
-        <!--<option value="5">(e) Legal Proof </option>-->
-        <!--<option value="5">(f) Others (specify)</option>-->
-     <!--</select>-->
-             {{ form.as_p }}
-          <input type="submit">
+            <input type="submit">
          </form>
          <br>
        </div>

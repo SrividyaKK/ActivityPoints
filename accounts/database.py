@@ -1,3 +1,12 @@
+n = [0] * 90
+for i in range(1, 3):
+    n[10 * i + 8] = 60
+    n[10 * i + 1] = 80
+    for j in range(2, 5):
+        n[10 * i + j] = 70
+    for k in range(5, 8):
+        n[10 * i + k] = 80
+
 s = [0] * 30
 for i in range(1, 3):
     s[10 * i + 1] = 8
